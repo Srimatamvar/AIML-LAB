@@ -31,11 +31,11 @@ def shortest_path(Start,Updated_cost, H):
         values = list(Updated_cost[Start].values())
         Index = values.index(Min_cost)
         Next = key[Index].split()
-        # ADD TO PATH FOR OR PATH
+       
         if len(Next) == 1:
             Start =Next[0]
             Path += '<--' +shortest_path(Start, Updated_cost, H)
-        # ADD TO PATH FOR AND PATH
+        
         else:
             Path +='<--('+key[Index]+') '
             Start = Next[0]
@@ -52,7 +52,7 @@ Conditions = {
     'C': {'OR': ['G'], 'AND': ['H', 'I']},
     'D': {'OR': ['J']}
 }
-# weight
+
 weight = 1
 print('Updated Cost :')
 Updated_cost = update_cost(H, Conditions, weight=1)
